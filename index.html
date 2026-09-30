@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#0f172a">
+    <meta name="description" content="Student Hustle Hub - Your study, scholarship and fitness companion">
+    <title>Student Hustle Hub</title>
+    
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="https://via.placeholder.com/192">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Monetization Placeholder -->
+        <div class="ad-banner-space">
+            <span><i class="fa-solid fa-rectangle-ad"></i> Ad Banner Space - Paste your Google AdSense Code Here</span>
+        </div>
+
+        <header class="app-header">
+            <h1><i class="fa-solid fa-fire"></i> Student Hustle Hub</h1>
+            <p>Hustle. Study. Succeed.</p>
+        </header>
+
+        <main>
+            <!-- HOME TAB -->
+            <section id="tab-home" class="tab-content active">
+                <div class="card countdown-card">
+                    <div class="card-badge">NEET UG 2026</div>
+                    <h2>Exam Countdown</h2>
+                    <p class="subtitle">Target: 3rd May, 2026 - 02:00 PM IST</p>
+                    <div class="countdown-grid" id="countdown">
+                        <div class="time-box"><span id="days">00</span><label>Days</label></div>
+                        <div class="time-box"><span id="hours">00</span><label>Hours</label></div>
+                        <div class="time-box"><span id="minutes">00</span><label>Mins</label></div>
+                        <div class="time-box"><span id="seconds">00</span><label>Secs</label></div>
+                    </div>
+                    <p id="countdown-message" class="motivation">"Every hour counts. Stay consistent!"</p>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fa-solid fa-bolt"></i> Today's Focus</h3>
+                    <ul class="focus-list">
+                        <li><i class="fa-solid fa-check"></i> Complete 2 Mock Tests</li>
+                        <li><i class="fa-solid fa-check"></i> Revise NCERT Biology</li>
+                        <li><i class="fa-solid fa-check"></i> Check new scholarships</li>
+                    </ul>
+                    <button class="btn-primary" onclick="switchTab('tracker')"><i class="fa-solid fa-play"></i> Start Study Session</button>
+                </div>
+
+                <div class="card quote-card">
+                    <i class="fa-solid fa-quote-left"></i>
+                    <p>"Success doesn't come from what you do occasionally, it comes from what you do consistently."</p>
+                </div>
+            </section>
+
+            <!-- STUDY TRACKER TAB -->
+            <section id="tab-tracker" class="tab-content">
+                <div class="card timer-card">
+                    <h2><i class="fa-solid fa-stopwatch"></i> Study Tracker</h2>
+                    <div class="mode-toggle">
+                        <button id="mode-stopwatch" class="mode-btn active" onclick="setMode('stopwatch')">Stopwatch</button>
+                        <button id="mode-pomodoro" class="mode-btn" onclick="setMode('pomodoro')">Pomodoro 25:00</button>
+                    </div>
+                    <div class="timer-display" id="timer-display">00:00:00</div>
+                    <div class="timer-controls">
+                        <button id="startPauseBtn" class="btn-circle btn-start" onclick="toggleTimer()"><i class="fa-solid fa-play"></i></button>
+                        <button class="btn-circle btn-reset" onclick="resetTimer()"><i class="fa-solid fa-rotate-left"></i></button>
+                        <button class="btn-circle btn-stop" onclick="stopAndSave()"><i class="fa-solid fa-stop"></i> Save</button>
+                    </div>
+                    <p class="timer-status" id="timer-status">Ready to hustle?</p>
+                </div>
+
+                <div class="card stats-card">
+                    <h3><i class="fa-solid fa-chart-line"></i> Today's Progress</h3>
+                    <div class="stats-grid">
+                        <div><span id="today-hours">0.00</span><label>Hours Today</label></div>
+                        <div><span id="today-sessions">0</span><label>Sessions</label></div>
+                    </div>
+                    <div class="progress-bar"><div id="progress-fill"></div></div>
+                    <p class="small-text">Goal: 6 hours/day &bull; Saved automatically in your device</p>
+                    <button class="btn-secondary" onclick="resetTodayStats()">Reset Today</button>
+                </div>
+            </section>
+
+            <!-- SCHOLARSHIPS TAB -->
+            <section id="tab-scholarships" class="tab-content">
+                <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Scholarship Alerts</h2>
+                <p class="section-subtitle">Latest verified scholarships for Indian students</p>
+
+                <div class="card scholarship-card featured">
+                    <div class="scholarship-header">
+                        <img src="https://via.placeholder.com/50/0f172a/ffffff?text=TC" alt="Tata">
+                        <div>
+                            <h3>Tata Capital Pankh Scholarship</h3>
+                            <span class="scholarship-amount">Up to ₹12,000</span>
+                        </div>
+                        <span class="badge-live">LIVE</span>
+                    </div>
+                    <p>For Class 11, 12, Graduation & Diploma students. 80%+ marks required. For financially needy students.</p>
+                    <div class="scholarship-meta">
+                        <span><i class="fa-regular fa-calendar"></i> Deadline: Mar 2026</span>
+                        <span><i class="fa-solid fa-users"></i> 2.5k+ Applied</span>
+                    </div>
+                    <a href="#" class="btn-primary btn-block"><i class="fa-solid fa-external-link"></i> Apply Now</a>
+                    <p class="affiliate-note">You will be redirected to official partner site</p>
+                </div>
+
+                <div class="card scholarship-card">
+                    <div class="scholarship-header">
+                        <img src="https://via.placeholder.com/50/2563eb/ffffff?text=B4S" alt="Buddy4Study">
+                        <div>
+                            <h3>Buddy4Study Updates</h3>
+                            <span class="scholarship-amount">Multiple Scholarships</span>
+                        </div>
+                    </div>
+                    <p>Discover 50+ active scholarships on Buddy4Study - Central, State, Private & International programs tailored for you.</p>
+                    <div class="scholarship-meta">
+                        <span><i class="fa-solid fa-bolt"></i> Daily Updates</span>
+                        <span><i class="fa-solid fa-shield-halved"></i> Verified</span>
+                    </div>
+                    <a href="#" class="btn-secondary btn-block"><i class="fa-solid fa-search"></i> Explore on Buddy4Study</a>
+                </div>
+
+                <div class="card scholarship-card">
+                    <div class="scholarship-header">
+                        <img src="https://via.placeholder.com/50/10b981/ffffff?text=NSP" alt="NSP">
+                        <div>
+                            <h3>NSP Pre-Matric & Post-Matric</h3>
+                            <span class="scholarship-amount">Up to ₹50,000</span>
+                        </div>
+                    </div>
+                    <p>National Scholarship Portal - All SC/ST/OBC/Minority scholarships at one place.</p>
+                    <a href="#" class="btn-secondary btn-block">Apply Now</a>
+                </div>
+            </section>
+
+            <!-- FITNESS TAB -->
+            <section id="tab-fitness" class="tab-content">
+                <div class="card">
+                    <h3><i class="fa-solid fa-droplet"></i> Water Intake Tracker</h3>
+                    <p class="subtitle">Stay hydrated, stay sharp. Goal: 3 Liters / 8 Glasses</p>
+                    <div class="water-grid" id="water-grid">
+                        <!-- Generated by JS -->
+                    </div>
+                    <div class="water-stats">
+                        <span id="water-count">0 / 8 Glasses</span>
+                        <span id="water-litres">0.0 L</span>
+                    </div>
+                    <div class="progress-bar"><div id="water-fill"></div></div>
+                    <button class="btn-secondary" onclick="resetWater()">Reset</button>
+                </div>
+
+                <h2 class="section-title"><i class="fa-solid fa-utensils"></i> Budget Diet Plan</h2>
+                
+                <div class="card diet-card">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&q=80" alt="Budget Meal">
+                    <h3>Student Budget Meal (₹50/Meal)</h3>
+                    <p><strong>Breakfast:</strong> Oats + Banana + Peanuts (400 kcal, 15g Protein)</p>
+                    <p><strong>Lunch:</strong> Rice + Dal + Curd + Egg (550 kcal, 30g Protein)</p>
+                    <p><strong>Dinner:</strong> Roti + Paneer / Soya + Salad</p>
+                    <div class="price-tag">~ ₹150 / Day &bull; ~4500 / Month</div>
+                </div>
+
+                <div class="card diet-card">
+                    <img src="https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=400&q=80" alt="Whey Protein">
+                    <h3>Budget Whey Protein</h3>
+                    <p>Top affordable options for students: MuscleBlaze Raw Whey, As-It-Is Atom, MyProtein Impact.</p>
+                    <ul class="diet-features">
+                        <li><i class="fa-solid fa-check"></i> 24g Protein per scoop</li>
+                        <li><i class="fa-solid fa-check"></i> Lab tested & Affordable</li>
+                    </ul>
+                    <a href="#" class="btn-amazon"><i class="fa-brands fa-amazon"></i> Buy on Amazon</a>
+                </div>
+
+                <div class="card diet-card">
+                    <h3><i class="fa-solid fa-leaf"></i> Budget Supplements</h3>
+                    <p>Creatine Monohydrate (₹800), Peanut Butter, Sattu Powder - Best value for muscle & brain power.</p>
+                    <a href="#" class="btn-amazon"><i class="fa-brands fa-amazon"></i> Buy on Amazon</a>
+                </div>
+            </section>
+        </main>
+
+        <!-- BOTTOM NAVIGATION -->
+        <nav class="bottom-nav">
+            <button class="nav-item active" onclick="switchTab('home')" data-tab="home">
+                <i class="fa-solid fa-house"></i><span>Home</span>
+            </button>
+            <button class="nav-item" onclick="switchTab('tracker')" data-tab="tracker">
+                <i class="fa-solid fa-stopwatch"></i><span>Tracker</span>
+            </button>
+            <button class="nav-item" onclick="switchTab('scholarships')" data-tab="scholarships">
+                <i class="fa-solid fa-graduation-cap"></i><span>Scholars</span>
+            </button>
+            <button class="nav-item" onclick="switchTab('fitness')" data-tab="fitness">
+                <i class="fa-solid fa-dumbbell"></i><span>Fitness</span>
+            </button>
+        </nav>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
